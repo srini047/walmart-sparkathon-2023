@@ -128,3 +128,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Virtual Environment
+venv
+
+# Mac misc files
+.DS_Store
+
+# Large files
+data.csv
