@@ -137,3 +137,7 @@ venv
 
 # Large files
 data.csv
+
+# Test
+app.py
+test-output
