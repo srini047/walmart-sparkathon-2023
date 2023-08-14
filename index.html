@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkathon teamname</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/29c1c33eeb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-color-primary text-color-white tracking-wider">
+    <header class="sticky top-0 z-50">
+        <nav class="container flex justify-between items-center">
+            <div class="py-5 text-color-secondary font-bold text-3xl">
+                <a href="#home">
+                    <span class="text-color-white">Team</span>Name
+                </a>
+            </div>
+            <div>
+                <ul class="hidden lg:flex items-center space-x-6">
+                    <li><a href="#home" class="hover:text-color-secondary ease-in duration-200">Home</a></li>
+                    <li><a href="#problem" class="hover:text-color-secondary ease-in duration-200">Problem Statement</a></li>
+                    <li><a href="#features" class="hover:text-color-secondary ease-in duration-200">Features</a></li>
+                    <li><a href="#techstack" class="hover:text-color-secondary ease-in duration-200">Tech Stack</a></li>
+                    <li><button class="bg-color-secondary px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200"><a href="#" target="_blank">Chat Bot</a></button></li>
+                </ul>
+            </div>
+
+            <!-- Mobile screen  -->
+            <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div id="menu" class="hidden bg-color-primary-dark h-[100vh] absolute inset-0">
+                <ul class="h-full grid place-items-center py-20">
+                    <li><a id="hLink" href="#home" class="hover:text-color-secondary ease-in duration-200">Home</a></li>
+                    <li><a id="hLink" href="#problem" class="hover:text-color-secondary ease-in duration-200">Problem Statement</a></li>
+                    <li><a id="hLink" href="#features" class="hover:text-color-secondary ease-in duration-200">Features</a></li>
+                    <li><a id="hLink" href="#techstack" class="hover:text-color-secondary ease-in duration-200">Tech Stack</a></li>
+                   
+
+                    <li><button class="btn">Chat Bot</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="relative">
+            <div class="flex justify-center items-center min-h-screen">
+                <section id="home" class="relative w-full">
+                    <div class="container py-10 md:py-20">
+                        <div class="flex flex-col items-center text-center z-20">
+                            <h1 class="title mb-2 md:mb-4 text-4xl md:text-8xl">SPARKATHON</h1>
+                            <h2 class="leading-relaxed mb-3 md:mb-5 text-lg md:text-xl">Innovative tech-driven solution based on the theme</h2>
+                            <h1 class="title mb-5 md:mb-10 text-color-secondary text-3xl md:text-5xl">Emerging Tech</h1>
+                            <button class="btn">
+                                <a href="https://www.youtube.com/shorts/hP9ficE9NHU" target="_blank">Watch Our Solution</a>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+        </section>
+
+        <section id="problem">
+            <div class="container py-20 relative">
+                <div class="blob1"></div>
+
+                <div class="blob2"></div>
+                
+                <div class="flex flex-col items-center justify-between md:flex-row">
+                    <div class="mb-12 md:w-1/2">
+                        <img class="w-11/12" src="./img/ps1.png" alt="">
+                    </div>
+
+                    <div class="text-center md:text-left md:w-1/2 md:ml-20">
+                        <h4 class="font-bold text-color-secondary mb-4">Problem Statement</h4>
+                        <h1 class="title mb-4">Stylish Chatbot Companion to Future Trends</h1>
+                        <p class="leading-relaxed mb-10">Design a chatbot that predicts future fashion trends based on AI analysis of global fashion data and cultural influences. Customers can ask the chatbot for insights into upcoming trends and how to incorporate them into their style.</p>
+                        <button class="btn"><a href="https://www.youtube.com/shorts/hP9ficE9NHU" target="_blank">Learn More</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        
+
+        <section id="features" class="bg-color-primary-light">
+            <div class="container py-20">
+                <div class="text-center m-auto mb-20 md:w-1/2">
+                    <h4 class="font-bold text-color-secondary mb-4">Features</h4>
+                    <h1 class="title">Fashion Insights, Financial Gains</h1>
+                </div>
+
+                <div class="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0 md:space-x-6">
+                    <!-- card 1  -->
+                    <div class="text-center cursor-pointer">
+                        <div class="relative bg-color-primary-dark inline-block px-6 py-3 rounded-lg cursor-pointer hover:bg-color-secondary ease-in duration-200">
+                            <p class="text-6xl lg:after:content-[''] lg:after:flex lg:after:bg-[url('/img/line.png')] lg:after:absolute lg:after:top-4 lg:after:left-32 2xl:after:left-52 lg:after:bg-no-repeat lg:after:h-7 lg:after:w-52">1</p>
+                        </div>
+                        <h3 class="text-xl font-bold py-4">Personalized Style Guide</h3>
+                        <p class="leading-relaxed">Personalized recommendations based on the user's preferences</p>
+                    </div>
+
+                    <!-- card 2  -->
+                    <div class="text-center cursor-pointer">
+                        <div class="relative inline-block px-6 py-3 rounded-lg cursor-pointer bg-color-secondary">
+                            <p class="text-6xl lg:after:content-[''] lg:after:flex lg:after:bg-[url('/img/line-bottom.png')] lg:after:absolute lg:after:top-10 lg:after:left-32 2xl:after:left-52 lg:after:bg-no-repeat lg:after:h-7 lg:after:w-52">2</p>
+                        </div>
+                        <h3 class="text-xl font-bold py-4">Enhanced User Engagement</h3>
+                        <p class="leading-relaxed">Increases user retention and loyalty by offering valuable fashion insights and personalized recommendations</p>
+                    </div>
+                <!-- card 3  -->
+                    <div class="text-center cursor-pointer">
+                        <div class="relative bg-color-primary-dark inline-block px-6 py-3 rounded-lg cursor-pointer hover:bg-color-secondary ease-in duration-200">
+                            <p class="text-6xl">3</p>
+                        </div>
+                        <h3 class="text-xl font-bold py-4">Spike In Sales</h3>
+                        <p class="leading-relaxed"> Drive users to make more informed purchasing decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="techstack" class="bg-color-primary-light">
+            <div class="container py-20">
+                <div class="text-center m-auto mb-20 md:w-1/2">
+                    <h4 class="font-bold text-color-secondary mb-4">Tech Stack</h4>
+                    <h1 class="title">Technologies to Drive Innovation Forward</h1>
+                </div>
+
+                <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-12 lg:gap-8 px-4 sm:px-6 lg:px-8">
+                   
+                    <div class="border-2 border-solid border-color-gray text-center py-20 px-5 rounded-2xl cursor-pointer hover:bg-color-primary-dark ease-in duration-200">
+                        <h3 class="text-xl font-bold py-4" >FrontEnd</h3>
+                        <p class="leading-relaxed">FrontEnd Tech Stack would be present</p>
+                    </div>
+
+                   
+                    <div class="bg-color-primary-dark border-2 border-solid border-color-gray text-center py-20 px-5 rounded-2xl cursor-pointer">
+                        
+                        <h3 class="text-xl font-bold py-4">BackEnd</h3>
+                        
+                        <p class="leading-relaxed">BackEnd Tech Stack would be present</p>
+                    </div>
+
+                     
+                    <div class="border-2 border-solid border-color-gray text-center py-20 px-5 rounded-2xl cursor-pointer hover:bg-color-primary-dark ease-in duration-200">
+                       
+                        <h3 class="text-xl font-bold py-4">Database</h3>
+                        <img src="" alt="">
+                        <p class="leading-relaxed">Database used is present here</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="bg-color-primary-dark relative">
+                    <div class="flex justify-center pt-10 border-t border-color-gray">
+                        <div class="flex gap-5 items-center">
+                                <a href="" target="_blank"><i class="fa fa-linkedin cursor-pointer hover:text-color-secondary" ></i></a>
+                                <a href="" target="_blank"><i class="fa-brands fa-facebook-f cursor-pointer hover:text-color-secondary"></i></a>
+                                <a href="" target="_blank"><i class="fa-brands fa-twitter cursor-pointer hover:text-color-secondary"></i></a>
+                                <a href="" target="_blank"><i class="fa-brands fa-youtube cursor-pointer hover:text-color-secondary"></i></a>
+                                <a href="" target="_blank"><i class="fa-brands fa-instagram cursor-pointer hover:text-color-secondary"></i></a>
+                                
+                        </div>   
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const navbar = document.querySelector('header');
+
+        const sectionn = document.querySelectorAll('section');
+        const navlinkss = document.querySelectorAll('nav ul li a');
+
+        window.onscroll = () => {
+            if(window.scrollY > 100) {
+                navbar.classList.add('bg-color-primary-dark');
+                navbar.classList.add('border-b');
+                navbar.classList.add('border-color-gray');
+            } else {
+                navbar.classList.remove('bg-color-primary-dark');
+                navbar.classList.remove('border-b');
+                navbar.classList.remove('border-color-gray');
+            }
+
+            // active link
+            let current = 'home';
+
+            sectionn.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= sectionTop-60) {
+                    current = section.getAttribute('id');
+                }
+            })
+            navlinkss.forEach((item) => {
+                item.classList.remove('text-color-secondary');
+                if(item.href.includes(current)) {
+                    item.classList.add("text-color-secondary");
+                } 
+            });
+        }
+
+        // Mobile menu
+        const hamburger = document.querySelector('#hamburger');
+        const menu = document.querySelector('#menu');
+        const hLink = document.querySelectorAll('#hLink');
+        const faSolid = document.querySelector(".fa-solid");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle('hidden');
+            faSolid.classList.toggle('fa-xmark');
+        })
+
+        hLink.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                faSolid.classList.toggle('fa-xmark');
+            })
+        })
+
+        
+    </script>
+</body>
+</html>
