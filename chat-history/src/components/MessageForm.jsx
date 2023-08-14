@@ -13,6 +13,8 @@ import { useAppContext } from "../context/appContext";
 export default function MessageForm() {
   const { supabase, username, country, auth } = useAppContext();
   const [message, setMessage] = useState("");
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
   const toast = useToast();
   const [isSending, setIsSending] = useState(false);
 
@@ -24,7 +26,24 @@ export default function MessageForm() {
     setMessage("");
 
     try {
-      const { error } = await supabase.from("messages").insert([
+      const userInput = message; // Replace with input from user input text field
+      const response = await axios.get(`http://127.0.0.1:5001/api/getChat?prompt=${userInput}`, {
+        headers: {
+          'Content-Type':'application/json'
+        },
+      });
+
+      console.log(response.data);
+      setData(response.data);
+    } catch (error) {
+      setError(error);
+    }
+    finally {
+      setData("Please check the console.")
+    }
+
+    try {
+      const { err1 } = await supabase.from("messages").insert([
         {
           text: message,
           username,
@@ -33,20 +52,41 @@ export default function MessageForm() {
         },
       ]);
 
-      if (error) {
-        console.error(error.message);
+      const { err2 } = await supabase.from("messages").insert([
+        {
+          text: data,
+          username: "bot",
+          country,
+          is_authenticated: auth.user() ? true : false,
+        },
+      ]);
+
+      if (err1) {
+        console.error(err1.message);
         toast({
           title: "Error sending",
-          description: error.message,
+          description: err1.message,
           status: "error",
           duration: 9000,
           isClosable: true,
         });
         return;
       }
+      if (err2) {
+        console.error(err2.message);
+        toast({
+          title: "Error sending",
+          description: err2.message,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+        return;
+      }
+
       console.log("Sucsessfully sent!");
-    } catch (error) {
-      console.log("error sending message:", error);
+    } catch (err) {
+      console.log("error sending message:", err);
     } finally {
       setIsSending(false);
     }
