@@ -166,4 +166,8 @@ test-output
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 >>>>>>> a17ea4b (profile_supabase)
+=======
+>>>>>>> ce96e17 (Profile_img)
+>>>>>>> 6023a6a (Profile_img)
