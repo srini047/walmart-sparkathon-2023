@@ -20,19 +20,16 @@ export default function MessageForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!message) setIsSending(false);
+
     setIsSending(true);
-    if (!message) return;
 
     setMessage("");
 
     try {
       const userInput = message; // Replace with input from user input text field
       console.log(userInput);
-      const response = await axios.get(`http://127.0.0.1:5001/api/getChat?prompt=${userInput}`, {
-        headers: {
-          'Content-Type':'application/json'
-        },
-      });
+      const response = await axios.get(`http://127.0.0.1:5001/api/getChat?prompt=${userInput}`);
 
       console.log(response.data);
       setData(response.data);
@@ -41,6 +38,8 @@ export default function MessageForm() {
     }
     finally {
       setData("Please check the console.")
+      setMessage("");
+      setIsSending(false);
     }
 
     try {
