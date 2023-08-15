@@ -2,18 +2,20 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 import pandas as pd
+from langchain import LLMChain, Cohere
 from langchain.agents import create_csv_agent
-from langchain.llms import OpenAI
+from langchain.llms import Cohere
 from langchain.chat_models import ChatOpenAI
 from langchain.agents.agent_types import AgentType
 from langchain.agents import create_pandas_dataframe_agent
 
+# OPENAI_API_KEY = "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"
+COHERE_API_KEY = "CggzsdnWH6QXtnGJvKYe4IRZyGZ8UkTSykpmAigW"
+
 
 def chat_with_categorized_data(prompt: str):
-    OPENAI_API_KEY = "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"
-
     agent = create_csv_agent(
-        OpenAI(temperature=0.7, openai_api_key=OPENAI_API_KEY),
+        Cohere(model="command-xlarge-nightly", cohere_api_key=COHERE_API_KEY),
         "./unique_category.csv",
         verbose=True,
         agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
@@ -40,15 +42,21 @@ def filter_dataframe_by_category(data, input_category):
 
 
 def chat_with_filtered_data(filtered_df: pd.DataFrame, category: str):
-    OPENAI_API_KEY = "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"
+    # agent = create_pandas_dataframe_agent(
+    #     ChatOpenAI(
+    #         temperature=0, model="gpt-3.5-turbo-0613", openai_api_key=OPENAI_API_KEY
+    #     ),
+    #     filtered_df,
+    #     verbose=True,
+    #     agent_type=AgentType.OPENAI_FUNCTIONS,
+    # )
 
+    co = Cohere(auth_token=COHERE_API_KEY)
     agent = create_pandas_dataframe_agent(
-        ChatOpenAI(
-            temperature=0, model="gpt-3.5-turbo-0613", openai_api_key=OPENAI_API_KEY
-        ),
-        filtered_df,
+        llm=LLMChain(llm=co),
+        dataframe=filtered_df,
+        agent_type="cohere-functions",
         verbose=True,
-        agent_type=AgentType.OPENAI_FUNCTIONS,
     )
 
     response = agent.run(
@@ -60,41 +68,45 @@ def chat_with_filtered_data(filtered_df: pd.DataFrame, category: str):
 app = Flask(__name__)
 CORS(app, origins="*")
 
+
 # Base route
 @app.route("/", methods=["GET"])
 def keep_alive():
-    return {
-        "message": "Server is running..."
-    }
+    return {"response": "Server is running..."}
+
 
 # Used to fetch the chat output make users understand the latest trends based on chat prompts
 @app.route("/api/getChat", methods=["GET"])
 def get_chat_output():
-    try:
-        prompt = request.args.get('prompt')
-        data = pd.read_csv("./data.csv")
-        data.drop(["asin", "id"], axis=1, inplace=True)
-        data["category"] = data["purl"].apply(lambda x: x.split("/")[-5])
+    # try:
+    prompt = request.args.get("prompt")
+    if len(prompt) < 0:
+        return {"response": "Please provide a valid prompt."}
 
-        ans = chat_with_categorized_data(prompt)
+    data = pd.read_csv("./data.csv")
+    data.drop(["asin", "id"], axis=1, inplace=True)
+    data["category"] = data["purl"].apply(lambda x: x.split("/")[-5])
 
-        filtered_df = filter_dataframe_by_category(data, ans)
-        filtered_df.drop(["img", "purl"], axis=1, inplace=True)
+    ans = chat_with_categorized_data(prompt)
 
-        final_response = chat_with_filtered_data(filtered_df, ans)
+    filtered_df = filter_dataframe_by_category(data, ans)
+    filtered_df.drop(["img", "purl"], axis=1, inplace=True)
 
-        return jsonify(final_response)
-    except:
-        return jsonify("Facing errors, please try again...")
+    final_response = chat_with_filtered_data(filtered_df, ans)
+
+    return final_response
+    # except:
+    #     return {"Facing errors, please try again..."}
 
 
 # Used to fetch the closest product recommendations based on previous purchase history for a particular buyer
 @app.route("/api/getRecommendations", methods=["GET"])
 def get_close_recommendations():
-    try:
-        data = pd.read_csv("./data.csv")
-    except:
-        return jsonify("Facing errors, please try again...")
+    # try:
+    data = pd.read_csv("./data.csv")
+    # except:
+    #     return {"Facing errors, please try again..."}
+
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
