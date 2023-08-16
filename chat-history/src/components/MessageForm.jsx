@@ -14,7 +14,7 @@ import { useAppContext } from "../context/appContext";
 export default function MessageForm() {
   const { supabase, username, country, auth } = useAppContext();
   const [message, setMessage] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([10]);
   const [error, setError] = useState(null);
   const toast = useToast();
   const [isSending, setIsSending] = useState(false);
@@ -26,26 +26,18 @@ export default function MessageForm() {
     setIsSending(true);
 
     setMessage("");
-
+    
     try {
       setData("");
-      const req = await client(`http://127.0.0.1:7861`);
+      const req = await client(`http://127.0.0.1:7860`);
       const result = await req.predict("/predict", [
         message, // string  in 'prompt' Textbox component
       ]);
 
       const final = result.data
-      console.log(result.data);
-      console.log("Expected output: " + final[0]["response"])
+      // console.log(result.data);
+      // console.log("Expected output: " + final[1]["reponse"]);
       setData(final[0]["response"]);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setMessage("");
-      setIsSending(false);
-    }
-
-    try {
       const { err1 } = await supabase.from("messages").insert([
         {
           text: message,
@@ -54,10 +46,10 @@ export default function MessageForm() {
           is_authenticated: auth.user() ? true : false,
         },
       ]);
-
+      console.log(data);
       const { err2 } = await supabase.from("messages").insert([
         {
-          text: data,
+          text: final[0]["response"],
           username: "bot",
           country,
           is_authenticated: auth.user() ? true : false,
