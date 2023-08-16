@@ -137,6 +137,7 @@ venv
 
 # Large files
 data.csv
+walmart-python-server
 
 # Test
 app.py
