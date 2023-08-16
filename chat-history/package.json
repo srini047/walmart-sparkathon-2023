@@ -22,6 +22,7 @@
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
+    "@gradio/client": "^0.1.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

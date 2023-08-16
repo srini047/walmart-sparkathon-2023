@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { client } from "@gradio/client";
 import {
   Input,
   Stack,
@@ -27,17 +28,19 @@ export default function MessageForm() {
     setMessage("");
 
     try {
-      const userInput = message; // Replace with input from user input text field
-      console.log(userInput);
-      const response = await axios.get(`http://127.0.0.1:5001/api/getChat?prompt=${userInput}`);
+      setData("");
+      const req = await client(`http://127.0.0.1:7861`);
+      const result = await req.predict("/predict", [
+        message, // string  in 'prompt' Textbox component
+      ]);
 
-      console.log(response.data);
-      setData(response.data);
+      const final = result.data
+      console.log(result.data);
+      console.log("Expected output: " + final[0]["response"])
+      setData(final[0]["response"]);
     } catch (error) {
       setError(error);
-    }
-    finally {
-      setData("Please check the console.")
+    } finally {
       setMessage("");
       setIsSending(false);
     }
