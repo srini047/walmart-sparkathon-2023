@@ -1,78 +1,16 @@
-<<<<<<< HEAD
-# walmart-sparkathon-2023
-=======
-# Getting Started with Create React App
+# Fusion Futurists
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Which theme do you want to participate in?
+- [x] Emerging Tech
 
-## Available Scripts
+## What is your idea? (One line summary of your solution)
+Revolutionize e-commerce with AI-driven personalization for trend-aligned, satisfying shopping experiences.
 
-In the project directory, you can run:
+## What is the main problem you are solving?
+In the realm of e-commerce, individuals often encounter challenges when attempting to keep pace with rapidly evolving trends, while also personalizing their shopping experiences to align with their preferences. The dynamic nature of the e-commerce landscape, combined with the diverse influences that shape consumer behavior, makes it a complex task for people to confidently embrace the latest offerings that resonate with their unique tastes. Existing solutions often lack the ability to provide tailored guidance, leading to suboptimal purchasing decisions and dissatisfaction with products that don't align with individual preferences.
 
-### `npm start`
+This predicament is widespread among consumers from different demographics, seeking to match their preferences with the latest products in the market. The issue arises whenever individuals find themselves overwhelmed by the sheer variety of choices, and the struggle to navigate through an abundance of options to find products that match their preferences. The absence of a comprehensive and user-friendly platform exacerbates this challenge, preventing users from effectively discovering products that cater to their needs and preferences.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This problem becomes particularly evident as e-commerce platforms continuously introduce new products, leverage data from user interactions, and adapt to shifting consumer behaviors. The task of making well-informed purchasing decisions amidst this vast and ever-changing landscape becomes arduous, leading to uncertainty and reduced satisfaction with the shopping experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-<<<<<<< HEAD
->>>>>>> a17ea4b (profile_supabase)
-=======
->>>>>>> ce96e17 (Profile_img)
->>>>>>> 6023a6a (Profile_img)
+Solving this challenge necessitates an innovative AI-driven solution that harnesses real-time data and user behavior patterns. The solution should offer personalized recommendations, visual aids, and tailored guidance on products that align with individual preferences. By doing so, users can confidently navigate the e-commerce realm, make informed purchase choices, and enjoy a highly personalized shopping experience that caters to their specific tastes and requirements.
