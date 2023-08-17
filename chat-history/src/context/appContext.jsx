@@ -48,6 +48,7 @@ const AppContextProvider = ({ children }) => {
       username = localStorage.getItem("username") || randomUsername();
     }
     setUsername(username);
+    // console.log(username);
     localStorage.setItem("username", username);
   };
 

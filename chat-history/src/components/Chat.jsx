@@ -56,7 +56,7 @@ export default function Chat() {
                 <BsChevronDoubleDown style={{ marginLeft: "3px" }} />
               </Badge>
             ) : (
-              <BsChevronDoubleDown style={{ marginLeft: "3px" }} />
+              <BsChevronDoubleDown style={{ marginLeft: "3px", display:"hidden" }} />
             )}
           </div>
         )}

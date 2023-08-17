@@ -11,6 +11,7 @@ from langchain.agents import create_pandas_dataframe_agent
 from sklearn.decomposition import TruncatedSVD
 from langchain import Cohere
 from langchain.llms import Cohere
+from scipy.stats import pearsonr
 from langchain.agents.agent_types import AgentType
 from langchain.memory import ConversationBufferMemory
 from langchain.agents import Tool
@@ -21,6 +22,44 @@ OPENAI_API_KEY = "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"
 COHERE_API_KEY = "CggzsdnWH6QXtnGJvKYe4IRZyGZ8UkTSykpmAigW"
 SERPAPI_API_KEY = "dbc53dd88c7b0957548a81fa162e2d547e03cc19267162a9166e52d4e882f361"
 
+
+# Function to generate product recommendations
+def generate_recommendations(data):
+    # Prepare data for recommendation system
+    amazon_ratings1 = data.head(10000)
+    
+    ratings_utility_matrix = amazon_ratings1.pivot_table(values='rating', index='id', columns='name', fill_value=0)
+    X = ratings_utility_matrix.T
+    
+    SVD = TruncatedSVD(n_components=10)
+    decomposed_matrix = SVD.fit_transform(X)
+    
+    # Calculate correlation matrix using Pearson correlation
+    correlation_matrix = np.zeros((decomposed_matrix.shape[1], decomposed_matrix.shape[1]))
+
+    for i in range(decomposed_matrix.shape[1]):
+        for j in range(decomposed_matrix.shape[1]):
+            corr, _ = pearsonr(decomposed_matrix[:, i], decomposed_matrix[:, j])
+            correlation_matrix[i, j] = corr
+    
+    # Load product names for identification
+    product_names_df = pd.read_csv("./unique_category.csv")
+    i = product_names_df["product_name"].tolist()
+
+    # Prepare recommendation list based on correlations
+    product_names = list(X.index)
+    product_IDs = [product_names.index(product) for product in i]
+    correlation_product_ID = correlation_matrix[product_IDs[-1]]
+    Recommend = list(X.index[correlation_product_ID > 0.90])
+    
+    # Remove items already in the input set
+    for item in i:
+        if item in Recommend:
+            Recommend.remove(item)
+    
+    recommended_items = Recommend[:20]
+    
+    return recommended_items
 
 # Define required functions for the routes
 def chat_with_categorized_data(prompt: str):
@@ -168,12 +207,13 @@ def get_chat_output():
 def get_close_recommendations():
     try:
         data = pd.read_csv("./data.csv")
-
+        
+        # Generate product recommendations
         recommendations = generate_recommendations(data)
-
+        
         return jsonify({"recommendations": recommendations})
     except:
-        return jsonify({"error": "Facing errors, please try again..."})
+        return jsonify("An error occurred, please try again.")
 
 
 if __name__ == "__main__":
