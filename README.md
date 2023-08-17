@@ -32,3 +32,15 @@ Tech Stack:
 - Image Recognition APIs: To enable virtual try-ons and visual product suggestions.
 
 Fusion Futurist's comprehensive approach empowers users to confidently navigate the dynamic world of e-commerce, embracing trends that resonate with their unique styles, and enjoying satisfying journey.
+
+## Demo
+https://youtu.be/mD9EsNf1O4I
+
+https://github.com/srini047/walmart-sparkathon-2023/assets/81156510/d22a69ba-cc5f-4f1b-9261-2de9100249f1
+
+## Thumbnail
+![Fusion Futurists - Sparkathon 2023](https://github.com/srini047/walmart-sparkathon-2023/assets/81156510/38dfc349-8ac9-4cc7-9e75-eb7521a7db18)
+
+## Model diagram
+![Model Diagram](https://github.com/srini047/walmart-sparkathon-2023/assets/81156510/56c5ef25-db0d-40e1-9e45-6029648656c6)
+
